@@ -1907,6 +1907,27 @@ ul li,ol li { line-height:1.7; }
 .brand-logo {overflow:hidden; position:relative;}
 .brand-logo .asset-brand-image { display:block; width:100%; height:100%; object-fit:contain; }
 .brand-logo .asset-brand-image[hidden], .brand-logo .site-logo-original[hidden] {display:none !important;}
+/* Logo header: gunakan hanya gambar resmi dari GitHub Assets.
+   Hapus badge/ikon ATMI lama, bingkai gradasi, bayangan, dan garis dekorasi di belakang logo. */
+.brand-logo.asset-brand-image {
+  display: block;
+  width: 51px;
+  height: 44px;
+  flex: 0 0 51px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: contain;
+  object-position: center;
+}
+.brand-logo.asset-brand-image::before,
+.brand-logo.asset-brand-image::after,
+.brand-logo::after { content: none !important; display: none !important; }
+@media (max-width: 640px) {
+  .brand-logo.asset-brand-image { width: 42px; height: 42px; flex-basis: 42px; }
+}
 /* JPG/PNG yang berisi tabel, tulisan, atau gambar kerja: jangan dicrop. */
 .figure img.asset-document {display:block; width:100%; max-width:100%; height:auto; max-height:none; object-fit:contain;}
 .asset-missing { width:100%; padding:14px 12px; background:rgba(86,133,169,.05); border:1px dashed var(--c-border-hi);border-radius:9px; font-size:12px;line-height:1.5; color:var(--c-text-3); text-align:center;overflow-wrap:anywhere; }
@@ -1928,7 +1949,7 @@ ul li,ol li { line-height:1.7; }
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
     <div class="brand">
-      <div class="brand-logo" title="Logo ATMI dari assets/img/logo-atmi.jpg"><img class="asset-brand-image" src="assets/img/logo-atmi.jpg" alt="Logo Politeknik ATMI" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="site-logo-original" hidden>ATMI</span></div>
+      <img class="brand-logo asset-brand-image" src="assets/img/logo-atmi.jpg" alt="Logo Politeknik ATMI" title="Logo ATMI" loading="eager">
       <div class="brand-text">
         <div class="brand-title">PEMBELAJARAN SECTION TURNING (LW)</div>
         <div class="brand-sub">Work Basic Skill · Politeknik ATMI Surakarta</div>
